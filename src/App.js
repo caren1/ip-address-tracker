@@ -1,9 +1,9 @@
 import React from 'react';
 import { Map, Marker, Popup, TileLayer } from 'react-leaflet'
+
 import './App.css';
 
 function App() {
-
 
   const position = [52.2297, 21.0122];
   const zoom = 13;
@@ -20,24 +20,27 @@ function App() {
         </div>
       </header>
       <main>
-        <div className="userData">
-          <div className="userData__detail">
-            <p className="title">IP address</p>
-            <strong><p>192.212.174.101</p></strong>
-          </div>
-          <div className="userData__detail">
-            <p className="title">Location</p>
-            <strong><p>Brooklyn, NY, 1001</p></strong>
-          </div>
-          <div className="userData__detail">
-            <p className="title">Timezone</p>
-            <strong><p>UTC -05:00</p></strong>
-          </div>
-          <div className="userData__detail">
-            <p className="title">Isp</p>
-            <strong><p>SpaceX Starlink</p></strong>
+        <div class="wrapper">
+          <div className="userData">
+            <div className="userData__detail">
+              <p className="title">IP address</p>
+              <strong><p>192.212.174.101</p></strong>
+            </div>
+            <div className="userData__detail">
+              <p className="title">Location</p>
+              <strong><p>Brooklyn, NY, 1001</p></strong>
+            </div>
+            <div className="userData__detail">
+              <p className="title">Timezone</p>
+              <strong><p>UTC -05:00</p></strong>
+            </div>
+            <div className="userData__detail">
+              <p className="title">Isp</p>
+              <strong><p>SpaceX Starlink</p></strong>
+            </div>
           </div>
         </div>
+        
         <Map center={position} zoom={13}>
           <TileLayer
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
