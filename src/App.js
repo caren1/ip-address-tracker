@@ -58,14 +58,17 @@ function App() {
               <p className="title">IP address</p>
               <strong><p>{ip}</p></strong>
             </div>
+            <hr />
             <div className="userData__detail">
               <p className="title">Location</p>
               <strong><p>{location.country}, {location.region}, {location.city}</p></strong>
             </div>
+            <hr />
             <div className="userData__detail">
               <p className="title">Timezone</p>
               <strong><p>UTC {location.timezone}</p></strong>
             </div>
+            <hr />
             <div className="userData__detail">
               <p className="title">Isp</p>
               <strong><p>{isp}</p></strong>

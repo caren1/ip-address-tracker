@@ -10,7 +10,7 @@
 }
 
 .leaflet-container {
-  height: 70vh;
+  height: 65vh;
   width: 100%;
   z-index: 0;
 }
@@ -44,6 +44,7 @@
   border-bottom-left-radius: 10px;
   outline: none;
   border: none;
+  cursor: pointer;
 }
 
 .tracker__form > form > input::placeholder {
@@ -61,10 +62,17 @@
   color: white;
   outline: none;
   border: none;
+  cursor: pointer;
+}
+
+.tracker__form > form > button:hover {
+  background-color: rgb(36, 35, 35);
+
 }
 
 .wrapper {
   position: relative;
+  max-width: 65%;
 }
 
 .userData {
@@ -72,9 +80,9 @@
   z-index: 1;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-evenly;
   background-color: #fff;
-  max-width: 75%;
+  max-width: 100%;
   padding: 1em 1em;
   left: 0;
   right: 0;
@@ -82,9 +90,20 @@
   border-radius: 10px;
 }
 
+.userData > hr {
+  transform: rotate(90deg);
+  width: 3%;
+  color: hsl(0, 0%, 59%);
+}
+
 .userData__detail {
   padding: 1em;
   position: relative;
+  margin: 0;
+}
+
+.userData__detail:last-of-type {
+  border: none;
 }
 
 .userData__detail > .title {
