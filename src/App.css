@@ -4,9 +4,87 @@
   margin: 0;
   box-sizing: border-box;
   padding: 0;
+  max-width: 1440px;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: 'Rubik', sans-serif;
 }
 
 .leaflet-container {
-  height: 400px;
+  height: 70vh;
   width: 100%;
+  z-index: 0;
+}
+
+.tracker {
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-image: url('./images/pattern-bg.png');
+  background-position: center;
+  color: white;
+}
+
+.tracker > h1 {
+  font-size: 22px;
+  font-weight: 500;
+}
+
+.tracker__form > form {
+  width: 450px;
+  margin-top: 1em;
+  border-radius: 15px;
+}
+
+.tracker__form > form > input {
+  width: 90%;
+  padding: 1em;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  outline: none;
+  border: none;
+}
+
+.tracker__form > form > input::placeholder {
+  font-size: 14px;
+  color: hsl(0, 0%, 59%);
+}
+
+.tracker__form > form > button {
+  padding: 1em;
+  height: 100%;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  margin: 0;
+  background-color: #000;
+  color: white;
+  outline: none;
+  border: none;
+}
+
+.main {
+  position: relative;
+}
+
+.userData {
+  position: absolute;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 500px;
+  background-color: #fff;
+  padding: 1em;
+  top: 180px;
+  left: 180px;
+  border-radius: 10px;
+}
+
+.userData__detail {
+  /* margin: 1em; */
+  /* border-right: 1px solid gray;  */
+  padding: 1em;
+
 }

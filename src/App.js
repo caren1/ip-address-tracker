@@ -5,14 +5,14 @@ import './App.css';
 function App() {
 
 
-  const position = [51.505, -0.09];
+  const position = [52.2297, 21.0122];
   const zoom = 13;
 
   return (
     <div className="app">
       <header className="tracker">
         <h1>IP Address Tracker</h1>
-        <div class="tracker__form">
+        <div className="tracker__form">
           <form>
             <input type="text" placeholder="Search for any IP address or domain"/>
             <button type="submit">►</button>
@@ -39,14 +39,14 @@ function App() {
           </div>
         </div>
         <Map center={position} zoom={13}>
-    <TileLayer
-      url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-      attribution="&copy; <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"
-    />
-    <Marker position={position}>
-      <Popup>A pretty CSS3 popup.<br />Easily customizable.</Popup>
-    </Marker>
-  </Map>
+          <TileLayer
+            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+            attribution="&copy; <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"
+          />
+          <Marker position={position}>
+            <Popup>A pretty CSS3 popup.<br />Easily customizable.</Popup>
+          </Marker>
+       </Map>
       </main>
     </div>
   );
