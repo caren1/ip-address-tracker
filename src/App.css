@@ -9,6 +9,10 @@
   font-family: 'Rubik', sans-serif;
 }
 
+.app {
+  height: 100%;
+}
+
 .leaflet-container {
   height: 65vh;
   width: 100%;
@@ -35,9 +39,30 @@
 .tracker__form > form {
   width: 480px;
   margin-top: 1em;
+  display: flex;
+}
+
+@media screen and (max-width: 710px) {
+
+  .tracker {
+    justify-content: flex-start;
+  }
+
+  .tracker > h1 {
+    margin-top: 1em;
+  }
+
+  .tracker__form {
+    max-width: 80%;
+  }
+
+  .tracker__form > form {
+    max-width: 100%;
+  }
 }
 
 .tracker__form > form > input {
+  flex: 1 1;
   width: 90%;
   padding: 1.2em;
   border-top-left-radius: 10px;
@@ -88,6 +113,26 @@
   right: 0;
   top: -25px;
   border-radius: 10px;
+}
+
+@media screen and (max-width: 710px) {
+
+  .wrapper {
+    max-width: 70%;
+  }
+
+  .userData {
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    top: -90px;
+    font-size: 14px;
+  }
+
+  hr {
+    display: none;
+  }
 }
 
 .userData > hr {
