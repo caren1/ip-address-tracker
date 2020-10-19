@@ -1,12 +1,44 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Map, Marker, Popup, TileLayer } from 'react-leaflet'
+import { getUserData } from './api/index'
 
 import './App.css';
 
 function App() {
 
-  const position = [52.2297, 21.0122];
-  const zoom = 13;
+  const initData = {
+    ip: '8.8.8.8',
+    isp: 'Google LLC',
+    location: {
+      country: 'US',
+      region: 'California',
+      city: 'Mountain View',
+      timezone: '-07:00',
+      lat: 37.4223,
+      lng: -122.085,
+    },
+  }
+
+  const [ userIp, setUserIp ] = useState('');
+  const [ userData, setUserData ] = useState(initData);
+
+  const handleUserInput = (event) => {
+    console.log(event.target.value);
+    setUserIp(event.target.value);
+  }
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    const data = await getUserData(userIp);
+    if (data) {
+      console.log(data);
+      setUserData(data);
+    }
+    setUserIp('');
+  }
+
+  const { ip, isp, location } = userData;
+  const position = [location.lat, location.lng];
 
   return (
     <div className="app">
@@ -14,29 +46,29 @@ function App() {
         <h1>IP Address Tracker</h1>
         <div className="tracker__form">
           <form>
-            <input type="text" placeholder="Search for any IP address or domain"/>
-            <button type="submit">►</button>
+            <input value={userIp} type="text" placeholder="Search for any IP address or domain.." onChange={handleUserInput}/>
+            <button type="submit" onClick={handleSubmit}>►</button>
           </form>
-        </div>
+        </div> 
       </header>
       <main>
-        <div class="wrapper">
+        <div className="wrapper">
           <div className="userData">
             <div className="userData__detail">
               <p className="title">IP address</p>
-              <strong><p>192.212.174.101</p></strong>
+              <strong><p>{ip}</p></strong>
             </div>
             <div className="userData__detail">
               <p className="title">Location</p>
-              <strong><p>Brooklyn, NY, 1001</p></strong>
+              <strong><p>{location.country}, {location.region}, {location.city}</p></strong>
             </div>
             <div className="userData__detail">
               <p className="title">Timezone</p>
-              <strong><p>UTC -05:00</p></strong>
+              <strong><p>UTC {location.timezone}</p></strong>
             </div>
             <div className="userData__detail">
               <p className="title">Isp</p>
-              <strong><p>SpaceX Starlink</p></strong>
+              <strong><p>{isp}</p></strong>
             </div>
           </div>
         </div>
@@ -47,7 +79,7 @@ function App() {
             attribution="&copy; <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"
           />
           <Marker position={position}>
-            <Popup>A pretty CSS3 popup.<br />Easily customizable.</Popup>
+            <Popup>{ip}<br/>{location.city}<br/>{isp}</Popup>
           </Marker>
        </Map>
       </main>
